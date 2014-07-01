@@ -1,0 +1,27 @@
+{
+  "name": "taxonomy-manager",
+  "version": "0.0.0",
+  "description": "Web-based taxonomy management tool.",
+  "main": "public/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/justinbach/taxonomy-manager.git"
+  },
+  "author": "Justin Bachorik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinbach/taxonomy-manager/issues"
+  },
+  "homepage": "https://github.com/justinbach/taxonomy-manager",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-less": "^0.11.3",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-phpunit": "^0.3.3"
+  }
+}

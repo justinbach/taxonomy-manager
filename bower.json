@@ -1,0 +1,6 @@
+{
+  "name": "taxonomy-manager",
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}
