@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('welcome');
 });
+
+// login form
+Route::get('login', ['uses' => 'UserController@showLogin']);
+
+// process logic
+Route::post('login', ['uses' => 'UserController@doLogin']);
