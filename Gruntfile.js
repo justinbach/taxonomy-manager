@@ -56,10 +56,11 @@ module.exports = function (grunt) {
         },
         phpunit: {
             classes: {
-
+                dir: 'app/tests/'
             },
             options: {
-
+                bin: 'vendor/bin/phpunit',
+                colors: true
             }
         },
         watch: {
