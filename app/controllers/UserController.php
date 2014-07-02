@@ -41,7 +41,7 @@ class UserController extends BaseController
             // attempt login
             if (Auth::attempt($userdata))
             {
-                echo 'SUCCESS';
+                return Redirect::to('/');
             }
             else
             {
@@ -50,6 +50,12 @@ class UserController extends BaseController
                     ->withFlashError('Username or password incorrect.');
             }
         }
+    }
+
+    public function doLogout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
     }
 
 }

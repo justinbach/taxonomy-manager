@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('welcome');
-});
+// landing page
+Route::get('/', ['uses' => 'HomeController@showHome']);
 
-// login form
+// login logic
 Route::get('login', ['uses' => 'UserController@showLogin']);
-
-// process logic
 Route::post('login', ['uses' => 'UserController@doLogin']);
+Route::get('logout', ['uses' => 'UserController@doLogout']);
+
