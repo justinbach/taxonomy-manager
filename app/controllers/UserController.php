@@ -30,6 +30,16 @@ class UserController extends BaseController
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         }
+        else
+        {
+            $user = new User;
+            $user->name     = Input::get('name');
+            $user->email    = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+            $user->save();
+            Auth::login($user);
+            return Redirect::to('/');
+        }
     }
 
     public function showLogin()

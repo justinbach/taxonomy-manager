@@ -15,7 +15,7 @@
 {{ Form::text('email', Input::old('email'),
 ['placeholder' => 'Email Address', 'class' => 'form-control middle', 'type' => 'email', 'required']) }}
 {{ Form::password('password', ['class' => 'form-control middle', 'placeholder' => 'Password', 'required']) }}
-{{ Form::password('password_confirm', ['class' => 'form-control', 'placeholder' => 'Confirm Password', 'id' => 'password-confirm', 'required']) }}
+{{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confirm Password', 'id' => 'password-confirm', 'required']) }}
 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 {{ Form::close() }}
 @stop
