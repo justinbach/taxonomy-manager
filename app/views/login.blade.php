@@ -2,7 +2,6 @@
 
 @section('content')
 {{ Form::open(['url' => 'login', 'role' => 'form', 'class' => 'form-signin']) }}
-<!--<form class="form-signin" role="form">-->
     <h2 class="form-signin-heading">Please sign in</h2>
     <p>
         {{ $errors->first('email') }}

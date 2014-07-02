@@ -9,6 +9,29 @@
 class UserController extends BaseController
 {
 
+    public function showSignup()
+    {
+        return View::make('signup');
+    }
+
+    public function doSignup()
+    {
+        $rules = [
+            'name'              => 'required',
+            'email'             => 'required|email|unique:users',
+            'password'          => 'required|alphaNum|confirmed|min:3',
+        ];
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails())
+        {
+            return Redirect::to('signup')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        }
+    }
+
     public function showLogin()
     {
         // show the form

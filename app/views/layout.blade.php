@@ -45,7 +45,7 @@
                 @if (Auth::check())
                 <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                 @else
-                <li><a href="#signup">Sign Up</a></li>
+                <li><a href="{{ URL::to('signup') }}">Sign Up</a></li>
                 <li><a href="{{ URL::to('login') }}">Sign In</a></li>
                 @endif
             </ul>

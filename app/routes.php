@@ -14,6 +14,10 @@
 // landing page
 Route::get('/', ['uses' => 'HomeController@showHome']);
 
+// signup logic
+Route::get('signup', ['uses' => 'UserController@showSignup']);
+Route::post('signup', ['uses' => 'UserController@doSignup']);
+
 // login logic
 Route::get('login', ['uses' => 'UserController@showLogin']);
 Route::post('login', ['uses' => 'UserController@doLogin']);
