@@ -2,6 +2,18 @@
 
 class UsersController extends \BaseController {
 
+    private $user;
+
+    /**
+     * User instance will automatically be generated for us.
+     *
+     * @param User $user
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /users
@@ -21,7 +33,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('users.create');
 	}
 
 	/**
@@ -32,7 +44,32 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $rules = [
+            'name'              => 'required',
+            'username'         => 'required|unique:users',
+            'email'             => 'required|email|unique:users',
+            'password'          => 'required|alphaNum|confirmed|min:3',
+        ];
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails())
+        {
+            return Redirect::to('signup')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        else
+        {
+            $user = new User;
+            $user->name     = Input::get('name');
+            $user->username = Input::get('username');
+            $user->email    = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+            $user->save();
+            Auth::login($user);
+            return Redirect::home();
+        }
 	}
 
 	/**

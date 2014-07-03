@@ -15,8 +15,7 @@
 // landing page
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showHome']);
 
-Route::get('signup', 'UsersController@new');
-Route::post('signup', 'UsersController@create');
+Route::get('signup', 'UsersController@create');
 
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
