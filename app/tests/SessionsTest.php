@@ -1,6 +1,6 @@
 <?php
 
-class UserTest extends TestCase
+class SessionsTest extends TestCase
 {
 
     public function setUp()
@@ -20,7 +20,7 @@ class UserTest extends TestCase
             'password'  => 'password'
         ];
 
-        $this->action('POST', 'UserController@doLogin', null, $credentials);
+        $this->action('POST', 'SessionsController@store', null, $credentials);
         $this->assertEquals(Auth::check(), true);
     }
 
@@ -31,7 +31,7 @@ class UserTest extends TestCase
             'password'  => 'nogood'
         ];
 
-        $this->action('POST', 'UserController@doLogin', null, $credentials);
+        $this->action('POST', 'SessionsController@store', null, $credentials, [], ['HTTP_REFERER' => 'http://www.npr.org']);
         $this->assertEquals(Auth::check(), false);
     }
 }

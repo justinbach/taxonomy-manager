@@ -7,6 +7,9 @@
 		"laravel/framework": "4.2.*",
 		"phpunit/phpunit": "3.7.*"
 	},
+    "require-dev": {
+        "way/generators": "2.*"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

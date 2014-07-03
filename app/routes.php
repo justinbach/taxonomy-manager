@@ -1,6 +1,7 @@
 <?php
 
 /*
+ *
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
@@ -12,14 +13,14 @@
 */
 
 // landing page
-Route::get('/', ['uses' => 'HomeController@showHome']);
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showHome']);
 
-// signup logic
-Route::get('signup', ['uses' => 'UserController@showSignup']);
-Route::post('signup', ['uses' => 'UserController@doSignup']);
+Route::get('signup', 'UsersController@new');
+Route::post('signup', 'UsersController@create');
 
-// login logic
-Route::get('login', ['uses' => 'UserController@showLogin']);
-Route::post('login', ['uses' => 'UserController@doLogin']);
-Route::get('logout', ['uses' => 'UserController@doLogout']);
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
+
+Route::resource('users', 'UsersController');
+Route::resource('sessions', 'SessionsController', ['only' => ['create','store','destroy']]);
 

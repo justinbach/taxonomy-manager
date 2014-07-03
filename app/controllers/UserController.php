@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Class UserController
+ * Class UsersController
  *
  * Controller for user management.
  */
 
-class UserController extends BaseController
+class UsersController extends BaseController
 {
 
     public function showSignup()
@@ -18,6 +18,7 @@ class UserController extends BaseController
     {
         $rules = [
             'name'              => 'required',
+            'usernname'         => 'required|unique:users',
             'email'             => 'required|email|unique:users',
             'password'          => 'required|alphaNum|confirmed|min:3',
         ];
