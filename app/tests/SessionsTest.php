@@ -14,7 +14,7 @@ class SessionsTest extends TestCase
     {
         $this->seed();
 
-        // from the seed DB
+        // from the seed db
         $credentials = [
             'email'     => 'jbachorik@npr.org',
             'password'  => 'password'
