@@ -6,7 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"phpunit/phpunit": "3.7.*",
-        "laravelbook/ardent": "2.*"
+        "laravelbook/ardent": "2.*",
+		"fzaninotto/Faker": "*",
+		"doctrine/dbal": "*"
 	},
     "require-dev": {
         "way/generators": "2.*"

@@ -1,0 +1,1 @@
+/home/vagrant/Code/NPR/git/taxonomy-manager/app/views/taxonomies/create.blade.php

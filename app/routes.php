@@ -15,11 +15,15 @@
 // landing page
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showHome']);
 
+// alias for creating a new user
 Route::get('signup', 'UsersController@create');
 
+// aliases for session creation and destruction
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 
-Route::resource('users', 'UsersController');
+// resources
 Route::resource('sessions', 'SessionsController', ['only' => ['create','store','destroy']]);
+Route::resource('users', 'UsersController');
+Route::resource('taxonomies', 'TaxonomiesController');
 
