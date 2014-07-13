@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"phpunit/phpunit": "3.7.*"
+		"phpunit/phpunit": "3.7.*",
+        "laravelbook/ardent": "2.*"
 	},
     "require-dev": {
         "way/generators": "2.*"

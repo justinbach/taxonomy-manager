@@ -44,30 +44,16 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-        $rules = [
-            'name'              => 'required',
-            'username'         => 'required|unique:users',
-            'email'             => 'required|email|unique:users',
-            'password'          => 'required|alphaNum|confirmed|min:3',
-        ];
 
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails())
+        if (!$this->user->save())
         {
             return Redirect::to('signup')
-                ->withErrors($validator)
+                ->withErrors($this->user->errors())
                 ->withInput();
         }
         else
         {
-            $user = new User;
-            $user->name     = Input::get('name');
-            $user->username = Input::get('username');
-            $user->email    = Input::get('email');
-            $user->password = Hash::make(Input::get('password'));
-            $user->save();
-            Auth::login($user);
+            Auth::login($this->user);
             return Redirect::home();
         }
 	}

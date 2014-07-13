@@ -12,10 +12,11 @@ class UserTableSeeder extends \Illuminate\Database\Seeder
     {
         DB::table('users')->delete();
         User::create([
-            'name'      =>  'Justin Bachorik',
-            'username'  =>  'jbachorik',
-            'email'     =>  'jbachorik@npr.org',
-            'password'  =>  Hash::make('password')
+            'name'                  => 'Justin Bachorik',
+            'username'              => 'jbachorik',
+            'email'                 => 'jbachorik@npr.org',
+            'password'              => 'password',
+            'password_confirmation' => 'password'
         ]);
     }
 }
