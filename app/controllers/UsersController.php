@@ -44,7 +44,6 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-
         if (!$this->user->save())
         {
             return Redirect::to('signup')

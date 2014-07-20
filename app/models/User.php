@@ -47,6 +47,7 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 
     /**
      * Validation rules.
+     *
      * @var array
      */
     public static $rules = [

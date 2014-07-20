@@ -42,7 +42,17 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        if (!$this->taxonomy->save())
+        {
+           return Redirect::back()
+               ->withErrors($this->taxonomy->errors())
+               ->withInput();
+        }
+        else
+        {
+            return Redirect::action('TaxonomiesController@index')
+                ->with('flash', 'New taxonomy created successfully');
+        }
 	}
 
 	/**
