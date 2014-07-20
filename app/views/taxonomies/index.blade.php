@@ -9,7 +9,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Actions</th>
@@ -18,7 +17,6 @@
         <tbody>
         @foreach ($taxonomies as $taxonomy)
         <tr>
-            <td>{{{ $taxonomy->id }}}</td>
             <td>{{{ $taxonomy->name }}}</td>
             <td>{{{ $taxonomy->description }}}</td>
             <td>Edit</td>

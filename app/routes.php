@@ -25,5 +25,8 @@ Route::get('logout', 'SessionsController@destroy');
 // resources
 Route::resource('sessions', 'SessionsController', ['only' => ['create','store','destroy']]);
 Route::resource('users', 'UsersController');
-Route::resource('taxonomies', 'TaxonomiesController');
+
+Route::group(['before' => 'auth'], function() {
+    Route::resource('taxonomies', 'TaxonomiesController');
+});
 
