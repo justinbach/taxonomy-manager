@@ -31,12 +31,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">NPR Taxonomies</a>
+            <a class="navbar-brand" href="{{ route('home') }}">NPR Taxonomies</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 @if (Auth::check())
-                <li class="active"><a href="#taxonomies">Taxonomies</a></li>
+                <li class="active"><a href="{{ URL::action('TaxonomiesController@index') }}">Taxonomies</a></li>
                 <li><a href="#terms">Terms</a></li>
                 <li><a href="#users">Users</a></li>
                 @endif
