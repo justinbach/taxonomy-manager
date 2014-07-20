@@ -6,14 +6,14 @@ class SessionsTest extends TestCase
     public function setUp()
     {
         parent::setUp();
+        Artisan::call('migrate');
+        $this->seed();
         Session::start();
         Route::enableFilters();
     }
 
     public function testValidUserShouldLogIn()
     {
-        $this->seed();
-
         // from the seed db
         $credentials = [
             'email'     => 'jbachorik@npr.org',
