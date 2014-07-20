@@ -31,7 +31,7 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('taxonomies.create');
 	}
 
 	/**

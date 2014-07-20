@@ -57,8 +57,6 @@
 
     @yield('content')
 
-
-
 </div><!-- /.container -->
 
 

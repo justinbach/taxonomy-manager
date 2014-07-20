@@ -25,5 +25,6 @@
         </tbody>
     </table>
  </div>
+<a href="{{ URL::action('TaxonomiesController@create') }}" class="btn btn-primary btn-lg active" role="button">Add New Taxonomy</a>
 @endif
 @stop
