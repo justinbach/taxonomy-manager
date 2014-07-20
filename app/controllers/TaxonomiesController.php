@@ -2,6 +2,16 @@
 
 class TaxonomiesController extends \BaseController {
 
+    /**
+     * Taxonomy instance will automatically be generated for us.
+     *
+     * @param Taxonomy $taxonomy
+     */
+    public function __construct(Taxonomy $taxonomy)
+    {
+        $this->taxonomy = $taxonomy;
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 * GET /taxonomies
@@ -10,7 +20,7 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        return View::make('taxonomies.index', ['taxonomies' => $this->taxonomy->all()]);
 	}
 
 	/**
