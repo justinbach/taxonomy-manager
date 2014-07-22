@@ -76,7 +76,15 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        $this->taxonomy = Taxonomy::find($id);
+        if ($this->taxonomy === NULL)
+        {
+            return Redirect::to(URL::action('TaxonomiesController@index'));
+        }
+        else
+        {
+            return View::make('taxonomies.edit', ['taxonomy' => $this->taxonomy]);
+        }
 	}
 
 	/**

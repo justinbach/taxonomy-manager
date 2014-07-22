@@ -1,1 +1,5 @@
-/home/vagrant/Code/NPR/git/taxonomy-manager/app/views/taxonomies/edit.blade.php
+@extends('layout')
+
+@section('content')
+<h1>Name: {{ $taxonomy->name }}</h1>
+@stop

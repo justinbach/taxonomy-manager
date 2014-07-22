@@ -19,7 +19,7 @@
         <tr>
             <td>{{{ $taxonomy->name }}}</td>
             <td>{{{ $taxonomy->description }}}</td>
-            <td>Edit</td>
+            <td>{{ link_to_action('TaxonomiesController@edit', 'Edit', $taxonomy->id) }}</td>
         </tr>
         @endforeach
         </tbody>
