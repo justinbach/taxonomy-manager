@@ -54,9 +54,12 @@
 </div>
 
 <div class="container">
-
+    @if(Session::has('message'))
+    <div class="row flash-container">
+        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    </div>
+    @endif
     @yield('content')
-
 </div><!-- /.container -->
 
 

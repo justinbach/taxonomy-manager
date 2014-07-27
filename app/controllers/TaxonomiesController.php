@@ -50,8 +50,9 @@ class TaxonomiesController extends \BaseController {
         }
         else
         {
-            return Redirect::action('TaxonomiesController@index')
-                ->with('flash', 'New taxonomy created successfully');
+            Session::flash('message', 'New taxonomy created successfully.');
+            Session::flash('alert-class', 'alert-success');
+            return Redirect::action('TaxonomiesController@index');
         }
 	}
 
@@ -105,8 +106,9 @@ class TaxonomiesController extends \BaseController {
         }
         else
         {
-            return Redirect::action('TaxonomiesController@index')
-                ->with('flash', 'Taxonomy updated successfully');
+            Session::flash('message', 'Taxonomy updated successfully.');
+            Session::flash('alert-class', 'alert-success');
+            return Redirect::action('TaxonomiesController@index');
         }
 	}
 
@@ -119,7 +121,20 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $this->taxonomy = Taxonomy::find($id);
+        if (!$this->taxonomy->delete())
+        {
+            Session::flash('message', 'Error deleting taxonomy.');
+            Session::flash('alert-class', 'alert-danger');
+            return Redirect::back();
+        }
+        else
+        {
+            Session::flash('message', 'Taxonomy deleted successfully.');
+            Session::flash('alert-class', 'alert-success');
+            return Redirect::action('TaxonomiesController@index');
+        }
+
 	}
 
 }
