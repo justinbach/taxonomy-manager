@@ -31,7 +31,7 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function create()
 	{
-        return View::make('taxonomies.create');
+        return View::make('taxonomies.create', ['taxonomy' => $this->taxonomy]);
 	}
 
 	/**
@@ -96,7 +96,18 @@ class TaxonomiesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $this->taxonomy = Taxonomy::find($id);
+        if (!$this->taxonomy->updateUniques())
+        {
+            return Redirect::back()
+                ->withErrors($this->taxonomy->errors())
+                ->withInput();
+        }
+        else
+        {
+            return Redirect::action('TaxonomiesController@index')
+                ->with('flash', 'Taxonomy updated successfully');
+        }
 	}
 
 	/**

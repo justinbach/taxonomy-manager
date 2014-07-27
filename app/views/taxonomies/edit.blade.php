@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-<h1>Name: {{ $taxonomy->name }}</h1>
+@include('taxonomies._form', ['new' => false])
 @stop
